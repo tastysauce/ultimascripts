@@ -46,6 +46,8 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0xe9e // Tambourine
 // Wands
 @pushlist 'ItemTypes' 0xdf2 // Magic wand
+@pushlist 'ItemTypes' 0xdf3 // Another wand
+@pushlist 'ItemTypes' 0xdf4 // And another wand
 //Shields
 @pushlist 'ItemTypes' 0x1b72 //BronzeShields
 @pushlist 'ItemTypes' 0x1b73 //Buckler
@@ -57,7 +59,7 @@ clearlist 'ItemTypes'
 //Bone Armor
 @pushlist 'ItemTypes' 0x1451 //Bone Helmet
 @pushlist 'ItemTypes' 0x1454 //Bone Armor
-@pushlist 'ItemTypes' 0x1452 //Bone Leggings
+@pushlist 'ItemTypes' 0x1457 //Bone Leggings
 @pushlist 'ItemTypes' 0x1453 //Bone Arms
 @pushlist 'ItemTypes' 0x1450 //Bone Gloves
 //Platemail
@@ -73,7 +75,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x140c //Bascinet
 @pushlist 'ItemTypes' 0x140e //Norse Helm
 //Chainmail
-@pushlist 'ItemTypes' 0x13bb //Chainmail Coif
+@pushlist 'ItemTypes' 0x13c0 //Chainmail Coif
 @pushlist 'ItemTypes' 0x13c3 //Chainmail Leggings
 @pushlist 'ItemTypes' 0x13c4 //Chainmail Tunic
 @pushlist 'ItemTypes' 0x13ef //Chainmail Arms
@@ -90,7 +92,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x13d6 //Studded Gorget
 @pushlist 'ItemTypes' 0x13d4 //Studded Sleeves
 //Leather
-@pushlist 'ItemTypes' 0x13c6 //Leather Gloves
+@pushlist 'ItemTypes' 0x13ce //Leather Gloves
 @pushlist 'ItemTypes' 0x13cd //Leather Sleeves
 @pushlist 'ItemTypes' 0x13d3 //Leather Tunic
 @pushlist 'ItemTypes' 0x13d2 //Leather Pants
@@ -125,7 +127,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x143b //Maul
 //Swords
 @pushlist 'ItemTypes' 0x13b9 //Viking Sword
-@pushlist 'ItemTypes' 0x13b8 //Longsword
+@pushlist 'ItemTypes' 0xf61 //Longsword
 @pushlist 'ItemTypes' 0x1441 //Cutlass
 @pushlist 'ItemTypes' 0x13b6 //Scimitar
 @pushlist 'ItemTypes' 0xec4  //Skinning Knife
@@ -181,11 +183,7 @@ for 0 to 'ItemTypes'
 		endif
 
 		pause 1000
-		if @injournal 'silver' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'silver' '2213'
-	      @clearjournal
-	    elseif @injournal 'vanquishing' 'system'
+	    if @injournal 'vanquishing' 'system'
 	      moveitem found 'stufftokeep'
 	      headmsg 'vanquishing' '2213'
 	      @clearjournal
@@ -196,6 +194,14 @@ for 0 to 'ItemTypes'
 	    elseif @injournal 'force' 'system'
 	      moveitem found 'stufftokeep'
 	      headmsg 'force' '2213'
+	      @clearjournal
+	    elseif @injournal 'exceedingly accurate' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'exceedingly accurate' '2213'
+	      @clearjournal
+	    elseif @injournal 'supremely accurate' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'supremely accurate' '2213'
 	      @clearjournal
 	    elseif @injournal 'invulnerability' 'system'
 	      moveitem found 'stufftokeep'
@@ -208,6 +214,38 @@ for 0 to 'ItemTypes'
 	    elseif @injournal 'fortification' 'system'
 	      moveitem found 'stufftokeep'
 	      headmsg 'fortification' '2213'
+	      @clearjournal
+	    elseif @injournal 'slaying' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'slaying' '2213'
+	      @clearjournal
+	    elseif @injournal 'exceedingly charged' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'exceedingly charged' '2213'
+	      @clearjournal
+	    elseif @injournal 'supremely charged' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'supremely charged' '2213'
+	      @clearjournal
+	    elseif @injournal 'ponderous' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'ponderous' '2213'
+	      @clearjournal
+	    elseif @injournal 'prodigious' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'prodigious' '2213'
+	      @clearjournal
+	    elseif @injournal 'troubador' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'troubador' '2213'
+	      @clearjournal
+	    elseif @injournal 'balladeer' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'balladeer' '2213'
+	      @clearjournal
+	    elseif @injournal 'enticing' 'system'
+	      moveitem found 'stufftokeep'
+	      headmsg 'enticing' '2213'
 	      @clearjournal
 	    endif
 
