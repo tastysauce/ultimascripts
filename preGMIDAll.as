@@ -48,6 +48,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0xdf2 // Magic wand
 @pushlist 'ItemTypes' 0xdf3 // Another wand
 @pushlist 'ItemTypes' 0xdf4 // And another wand
+@pushlist 'ItemTypes' 0xdf5 // And another wand
 //Shields
 @pushlist 'ItemTypes' 0x1b72 //BronzeShields
 @pushlist 'ItemTypes' 0x1b73 //Buckler
@@ -55,7 +56,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x1b74 //Metal Kite Shield
 @pushlist 'ItemTypes' 0x1b79 //Tear Kite Shield
 @pushlist 'ItemTypes' 0x1b7a //WoodenShield
-@pushlist 'ItemTypes' 0x1b76 //HeaterShield
+@pushlist 'ItemTypes' 0x1b77 //HeaterShield
 //Bone Armor
 @pushlist 'ItemTypes' 0x1451 //Bone Helmet
 @pushlist 'ItemTypes' 0x1454 //Bone Armor
@@ -73,12 +74,13 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x1c09 //Plate skirt
 @pushlist 'ItemTypes' 0x140a //Helmet
 @pushlist 'ItemTypes' 0x140c //Bascinet
-@pushlist 'ItemTypes' 0x140e //Norse Helm
+@pushlist 'ItemTypes' 0x140f //Norse Helm
 //Chainmail
 @pushlist 'ItemTypes' 0x13c0 //Chainmail Coif
 @pushlist 'ItemTypes' 0x13c3 //Chainmail Leggings
 @pushlist 'ItemTypes' 0x13c4 //Chainmail Tunic
 @pushlist 'ItemTypes' 0x13ef //Chainmail Arms
+@pushlist 'ItemTypes' 0x13f2 //Chainmail Gloves
 //Ringmail
 @pushlist 'ItemTypes' 0x13ee //Ringmail Sleeves
 @pushlist 'ItemTypes' 0x13eb //Ringmail Gloves
@@ -97,7 +99,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x13d3 //Leather Tunic
 @pushlist 'ItemTypes' 0x13d2 //Leather Pants
 @pushlist 'ItemTypes' 0x13c7 //Leather Gorget
-@pushlist 'ItemTypes' 0x1db9 //Leather Cap
+@pushlist 'ItemTypes' 0x1dba //Leather Cap
 //Female Armor
 @pushlist 'ItemTypes' 0x1c04 //Female Plate
 @pushlist 'ItemTypes' 0x1c0c //Female Studded Bustier
@@ -155,112 +157,108 @@ clearlist 'ItemTypes'
 // Look at every item type
 for 0 to 'ItemTypes'
 
-	// Process all items found of current ItemType
-	while @findtype 'ItemTypes[]' 'any' 'bagtosort'
+    // Process all items found of current ItemType
+    while @findtype 'ItemTypes[]' 'any' 'bagtosort'
 
-	    @clearjournal
+        @clearjournal
 
-	    // Id the item using
-	    pause 2000
-	    useskill 'Item Identification'
-	    waitfortarget 15000
-	    target! found
-	    pause 2000
+        // Id the item using
+        pause 2000
+        useskill 'Item Identification'
+        waitfortarget 15000
+        target! found
+        pause 2000
 
-	    // REMOVE THIS ONCE GM
-	    // Check if we succeeded
-	    pause 800
-	    if injournal 'You are not certain.' 'system' 
-	    	continue
-	    elseif injournal 'That item is already identified.' 'system'
-	    	headmsg 'Already identified this'
-	    	moveitem found 'stufftosell'
-	    	pause 700
-	    else 
-	    	headmsg 'Succeeded'
-	    	moveitem found 'stufftosell'
-	    	pause 700
-		endif
+        // REMOVE THIS ONCE GM
+        // Check if we succeeded
+        pause 800
+        if injournal 'You are not certain.' 'system' 
+            continue
+        elseif injournal 'That item is already identified.' 'system'
+            headmsg 'Already identified this'
+            moveitem found 'stufftosell'
+            pause 700
+        else 
+            headmsg 'Succeeded'
+            moveitem found 'stufftosell'
+            pause 700
+        endif
 
-		pause 1000
-	    if @injournal 'vanquishing' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'vanquishing' '2213'
-	      @clearjournal
-	    elseif @injournal 'power' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'power' '2213'
-	      @clearjournal
-	    elseif @injournal 'force' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'force' '2213'
-	      @clearjournal
-	    elseif @injournal 'exceedingly accurate' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'exceedingly accurate' '2213'
-	      @clearjournal
-	    elseif @injournal 'supremely accurate' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'supremely accurate' '2213'
-	      @clearjournal
-	    elseif @injournal 'invulnerability' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'invulnerability' '2213'
-	      @clearjournal
-	    elseif @injournal 'hardening' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'hardening' '2213'
-	      @clearjournal
-	    elseif @injournal 'fortification' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'fortification' '2213'
-	      @clearjournal
-	    elseif @injournal 'slaying' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'slaying' '2213'
-	      @clearjournal
-	    elseif @injournal 'exceedingly charged' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'exceedingly charged' '2213'
-	      @clearjournal
-	    elseif @injournal 'supremely charged' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'supremely charged' '2213'
-	      @clearjournal
-	    elseif @injournal 'ponderous' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'ponderous' '2213'
-	      @clearjournal
-	    elseif @injournal 'prodigious' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'prodigious' '2213'
-	      @clearjournal
-	    elseif @injournal 'troubador' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'troubador' '2213'
-	      @clearjournal
-	    elseif @injournal 'balladeer' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'balladeer' '2213'
-	      @clearjournal
-	    elseif @injournal 'enticing' 'system'
-	      moveitem found 'stufftokeep'
-	      headmsg 'enticing' '2213'
-	      @clearjournal
-	    endif
+        pause 1000
+        if @injournal 'vanquishing' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'vanquishing' '2213'
+          @clearjournal
+        elseif @injournal 'power' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'power' '2213'
+          @clearjournal
+        elseif @injournal 'force' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'force' '2213'
+          @clearjournal
+        elseif @injournal 'might' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'force' '2213'
+          @clearjournal
+        elseif @injournal 'exceedingly' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'exceedingly accurate' '2213'
+          @clearjournal
+        elseif @injournal 'supremely' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'supremely accurate' '2213'
+          @clearjournal
+        elseif @injournal 'invulnerability' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'invulnerability' '2213'
+          @clearjournal
+        elseif @injournal 'hardening' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'hardening' '2213'
+          @clearjournal
+        elseif @injournal 'fortification' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'fortification' '2213'
+          @clearjournal
+        elseif @injournal 'slaying' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'slaying' '2213'
+          @clearjournal
+        elseif @injournal 'ponderous' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'ponderous' '2213'
+          @clearjournal
+        elseif @injournal 'prodigious' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'prodigious' '2213'
+          @clearjournal
+        elseif @injournal 'troubador' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'troubador' '2213'
+          @clearjournal
+        elseif @injournal 'balladeer' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'balladeer' '2213'
+          @clearjournal
+        elseif @injournal 'enticing' 'system'
+          moveitem found 'stufftokeep'
+          headmsg 'enticing' '2213'
+          @clearjournal
+        endif
 
-	    @clearjournal
+        @clearjournal
 
-	endwhile
+    endwhile
 
 endfor
 
 headmsg 'DONE'
 // REMOVE ONCE GM
 while skill 'Item Identification' < 100
-	useskill 'Item Identification'
-	waitfortarget 15000
-	target! 'thingtoidforever'
-	pause 2000
+    useskill 'Item Identification'
+    waitfortarget 15000
+    target! 'thingtoidforever'
+    pause 2000
 endwhile
 
