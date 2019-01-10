@@ -150,7 +150,7 @@ while not dead
     // 3. Magery gains
     clearjournal 
     pause 650
-    if skill 'magery' < 89
+    if skill 'magery' < 86
       autotargetself
       cast 'flame strike'
       pause 4001
@@ -188,7 +188,7 @@ while not dead
       endwhile
       pause 600
     else 
-      attack 'friend1'
+      // attack 'friend1'
     endif
 
     // 5. Reagent Check
@@ -250,7 +250,7 @@ while not dead
 
     // Check Recall reagents
     sysmsg 'Checking recall reagents'
-    if counter 'blackpearl' == 0
+    if counter 'blackpearl' < 3
       useobject regbag
       pause 751
       waitforcontext banker 1 15000
@@ -259,7 +259,7 @@ while not dead
       while organizing
         pause 1001
       endwhile
-    elseif counter 'bloodmoss' == 0
+    elseif counter 'bloodmoss' < 3
       useobject regbag
       pause 751
       waitforcontext banker 1 15000
@@ -268,7 +268,7 @@ while not dead
       while organizing
         pause 1001
       endwhile
-    elseif counter 'mandrake' == 0
+    elseif counter 'mandrake' < 3
       useobject regbag
       pause 751
       waitforcontext banker 1 15000
@@ -313,7 +313,7 @@ while not dead
 
     // Check Recall reagents
     sysmsg 'Checking recall reagents'
-    if counter 'blackpearl' == 1
+    if counter 'blackpearl' < 3
       useobject regbag
       pause 751
       waitforcontext banker 1 15000
@@ -322,14 +322,14 @@ while not dead
       while organizing
         pause 1001
       endwhile
-    elseif counter 'bloodmoss' == 1
+    elseif counter 'bloodmoss' < 3
       waitforcontext banker 1 15000
       pause 751
       organizer rereg
       while organizing
         pause 1001
       endwhile
-    elseif counter 'mandrake' == 1
+    elseif counter 'mandrake' < 3
       waitforcontext banker 1 15000
       pause 751
       organizer rereg
