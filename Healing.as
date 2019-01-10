@@ -23,13 +23,12 @@ endif
 // Will run while we have 0xe21 (bandages)
 while @findtype 0xe21 'any' 'backpack' 1
 
+  pause 1000
   // Make sure we always tab out for now
   warmode 'off'
-
-  useskill 'anatomy' 
-  waitfortarget 2000
-  target! 'friend1'
-  pause 1000
+  pause 650
+  warmode 'on'
+  pause 650
 
   // Make sure we have a weapon equipped
   // Have to findtype again to make sure that the dagger is the last found type
@@ -58,7 +57,7 @@ while @findtype 0xe21 'any' 'backpack' 1
     pause 500
     useobject 'found'
     waitfortarget 1000
-    target 'friend1'
+    target! 'friend1'
     pause 6500
   endif
 
@@ -66,9 +65,10 @@ while @findtype 0xe21 'any' 'backpack' 1
   if counter 'bandages' == 0
     movetype 0xe21 'Box' 'backpack' 0 0 0 'any' 20 1
     pause 750
-  endif    
+  endif  
+
+  canceltarget  
 
 endwhile
 // If we're outta bandages or knives, turn off war mode
 warmode 'off'
-
