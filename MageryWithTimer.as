@@ -1,3 +1,24 @@
+// This script requires a bit of set up
+//
+// You require the following:
+// 1. A rune to your walrus location in your bag (walrusRune)
+// 2. A rune to your bank location in your bag (you want to recall back to the bank right next to your healer) (reagentLocationRune)
+// 3. A 'rereg' organizer agent that will pull 20 of each reagent into your reagent bag
+// 4. A bag of reagents in your bank (regbag)
+// 5. A friend that is healing you as you wrestle them (optional) (friend1)
+// 6. The following counters for reagents set up in UOSteam:
+//    sulfur, blackpearl, bloodmoss, mandrake, silk, nightshade
+// 7. A banker that we'll use to open the bag and run the rereg agent
+//
+// This script will recall in to the walrus location and EBolt a walrus until it's dead if you're sub-80 magery.  Post-80 you will FS.
+// 
+// YOU CAN DIE IF YOU'RE RUNNING A TEMPLATE WITHOUT WRESTLING.  THE WALRUS WILL BEAT YOU UP.  
+// It's still possible to use this script, but I recommend ~20 wrestling and leather armor
+//
+// You may drop the magery threshold to start casting earth elemental from 86 to 80 if you're a wealthy person!
+
+
+
 // Person we will making sure isn't dying
 if not findalias 'friend1'
   sysmsg 'Select friend'
@@ -313,7 +334,7 @@ while not dead
 
     // Check Recall reagents
     sysmsg 'Checking recall reagents'
-    if counter 'blackpearl' < 3
+    if counter 'blackpearl' < 10 // This is higher to support EBolt
       useobject regbag
       pause 751
       waitforcontext banker 1 15000
