@@ -62,7 +62,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x1454 //Bone Armor
 @pushlist 'ItemTypes' 0x1457 //Bone Leggings
 @pushlist 'ItemTypes' 0x1453 //Bone Arms
-@pushlist 'ItemTypes' 0x1450 //Bone Gloves
+@pushlist 'ItemTypes' 0x1455 //Bone Gloves 4/2/21
 //Platemail
 @pushlist 'ItemTypes' 0x1409 //Close Helmet
 @pushlist 'ItemTypes' 0x1417 //Platemail Arms
@@ -96,6 +96,7 @@ clearlist 'ItemTypes'
 //Leather
 @pushlist 'ItemTypes' 0x13ce //Leather Gloves
 @pushlist 'ItemTypes' 0x13cd //Leather Sleeves
+@pushlist 'ItemTypes' 0x13c5 //Leather arms
 @pushlist 'ItemTypes' 0x13d3 //Leather Tunic
 @pushlist 'ItemTypes' 0x13d2 //Leather Pants
 @pushlist 'ItemTypes' 0x13c7 //Leather Gorget
@@ -107,7 +108,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x1c00 //Female Leather Shorts
 @pushlist 'ItemTypes' 0x1c08 //Female Leather Skirt
 @pushlist 'ItemTypes' 0x1c06 //Female Leather Armor
-@pushlist 'ItemTypes' 0x1c0a //Female Leather Bustier
+@pushlist 'ItemTypes' 0x1c0b //Female Leather Bustier 4/2/21
 //Fencing
 @pushlist 'ItemTypes' 0xf62  //Spear
 @pushlist 'ItemTypes' 0x1403 //Short Spear
