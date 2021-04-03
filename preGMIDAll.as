@@ -3,31 +3,26 @@ unsetalias 'bagtosort'
 unsetalias 'stufftosell'
 unsetalias 'stufftokeep'
 unsetalias 'thingtoidforever'
-
 if not @findobject 'thingtoidforever'
   headmsg 'Select thing to train on' '2124'
   promptalias 'thingtoidforever'
 endif
 pause 700
-
 if not @findobject 'bagtosort'
   headmsg 'Select From Bag' '2124'
   promptalias 'bagtosort'
 endif
 pause 700
-
 if not @findobject 'stufftosell'
   headmsg 'Select Junk Bag' '38'
   promptalias 'stufftosell'
 endif
 pause 700
-
 if not @findobject 'stufftokeep'
   headmsg 'Select Keeper Bag' '58'
   promptalias 'stufftokeep'
 endif
 pause 700
-
 // !! Static Data
 if not listexists 'ItemTypes'
   createlist 'ItemTypes'
@@ -36,12 +31,11 @@ useobject 'bagtosort'
 useobject 'stufftosell'
 useobject 'stufftokeep'
 clearlist 'ItemTypes'
-
 // Spellbooks
 @pushlist 'ItemTypes' 0xefa // Magic spellbook
 // Instruments
 @pushlist 'ItemTypes' 0xe9c // Drums
-@pushlist 'ItemTypes' 0xeb3 // Lute
+@pushlist 'ItemTypes' 0x2805 // Lute
 @pushlist 'ItemTypes' 0xeb2 // Harp
 @pushlist 'ItemTypes' 0xe9e // Tambourine
 // Wands
@@ -62,7 +56,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x1454 //Bone Armor
 @pushlist 'ItemTypes' 0x1457 //Bone Leggings
 @pushlist 'ItemTypes' 0x1453 //Bone Arms
-@pushlist 'ItemTypes' 0x1455 //Bone Gloves 4/2/21
+@pushlist 'ItemTypes' 0x1455 //Bone Gloves
 //Platemail
 @pushlist 'ItemTypes' 0x1409 //Close Helmet
 @pushlist 'ItemTypes' 0x1417 //Platemail Arms
@@ -84,7 +78,7 @@ clearlist 'ItemTypes'
 //Ringmail
 @pushlist 'ItemTypes' 0x13ee //Ringmail Sleeves
 @pushlist 'ItemTypes' 0x13eb //Ringmail Gloves
-@pushlist 'ItemTypes' 0x13ec //Ringmail Tunic
+@pushlist 'ItemTypes' 0x13ed //Ringmail Tunic
 @pushlist 'ItemTypes' 0x13f1 //Ringmail Leggings
 @pushlist 'ItemTypes' 0x140b //Ringmail Helm
 //Studded
@@ -95,7 +89,6 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x13d4 //Studded Sleeves
 //Leather
 @pushlist 'ItemTypes' 0x13ce //Leather Gloves
-@pushlist 'ItemTypes' 0x13cd //Leather Sleeves
 @pushlist 'ItemTypes' 0x13c5 //Leather arms
 @pushlist 'ItemTypes' 0x13d3 //Leather Tunic
 @pushlist 'ItemTypes' 0x13d2 //Leather Pants
@@ -108,7 +101,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x1c00 //Female Leather Shorts
 @pushlist 'ItemTypes' 0x1c08 //Female Leather Skirt
 @pushlist 'ItemTypes' 0x1c06 //Female Leather Armor
-@pushlist 'ItemTypes' 0x1c0b //Female Leather Bustier 4/2/21
+@pushlist 'ItemTypes' 0x1c0b //Female Leather Bustier 4/2
 //Fencing
 @pushlist 'ItemTypes' 0xf62  //Spear
 @pushlist 'ItemTypes' 0x1403 //Short Spear
@@ -154,112 +147,101 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0x13fd //HeavyXbow
 @pushlist 'ItemTypes' 0xf50  //Xbow
 @pushlist 'ItemTypes' 0x13b2 //bow
-
 // Look at every item type
 for 0 to 'ItemTypes'
-
-    // Process all items found of current ItemType
-    while @findtype 'ItemTypes[]' 'any' 'bagtosort'
-
-        @clearjournal
-
-        // Id the item using
-        pause 2000
-        useskill 'Item Identification'
-        waitfortarget 15000
-        target! found
-        pause 2000
-
-        // REMOVE THIS ONCE GM
-        // Check if we succeeded
-        pause 800
-        if injournal 'You are not certain.' 'system' 
-            continue
-        elseif injournal 'That item is already identified.' 'system'
-            headmsg 'Already identified this'
-            moveitem found 'stufftosell'
-            pause 700
-        else 
-            headmsg 'Succeeded'
-            moveitem found 'stufftosell'
-            pause 700
-        endif
-
-        pause 1000
-        if @injournal 'vanquishing' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'vanquishing' '2213'
-          @clearjournal
-        elseif @injournal 'power' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'power' '2213'
-          @clearjournal
-        elseif @injournal 'force' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'force' '2213'
-          @clearjournal
-        elseif @injournal 'might' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'force' '2213'
-          @clearjournal
-        elseif @injournal 'exceedingly' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'exceedingly accurate' '2213'
-          @clearjournal
-        elseif @injournal 'supremely' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'supremely accurate' '2213'
-          @clearjournal
-        elseif @injournal 'invulnerability' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'invulnerability' '2213'
-          @clearjournal
-        elseif @injournal 'hardening' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'hardening' '2213'
-          @clearjournal
-        elseif @injournal 'fortification' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'fortification' '2213'
-          @clearjournal
-        elseif @injournal 'slaying' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'slaying' '2213'
-          @clearjournal
-        elseif @injournal 'ponderous' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'ponderous' '2213'
-          @clearjournal
-        elseif @injournal 'prodigious' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'prodigious' '2213'
-          @clearjournal
-        elseif @injournal 'troubador' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'troubador' '2213'
-          @clearjournal
-        elseif @injournal 'balladeer' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'balladeer' '2213'
-          @clearjournal
-        elseif @injournal 'enticing' 'system'
-          moveitem found 'stufftokeep'
-          headmsg 'enticing' '2213'
-          @clearjournal
-        endif
-
-        @clearjournal
-
-    endwhile
-
+  // Process all items found of current ItemType
+  while @findtype 'ItemTypes[]' 'any' 'bagtosort'
+    @clearjournal
+    // Id the item using
+    pause 2000
+    useskill 'Item Identification'
+    waitfortarget 15000
+    target! found
+    pause 2000
+    // REMOVE THIS ONCE GM
+    // Check if we succeeded
+    pause 800
+    if injournal 'You are not certain.' 'system'
+      continue
+    elseif injournal 'That item is already identified.' 'system'
+      headmsg 'Already identified this'
+      moveitem found 'stufftosell'
+      pause 700
+    else
+      headmsg 'Succeeded'
+      moveitem found 'stufftosell'
+      pause 700
+    endif
+    pause 1000
+    if @injournal 'vanquishing' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'vanquishing' '2213'
+      @clearjournal
+    elseif @injournal 'power' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'power' '2213'
+      @clearjournal
+    elseif @injournal 'force' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'force' '2213'
+      @clearjournal
+    elseif @injournal 'might' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'force' '2213'
+      @clearjournal
+    elseif @injournal 'exceedingly' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'exceedingly accurate' '2213'
+      @clearjournal
+    elseif @injournal 'supremely' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'supremely accurate' '2213'
+      @clearjournal
+    elseif @injournal 'invulnerability' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'invulnerability' '2213'
+      @clearjournal
+    elseif @injournal 'hardening' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'hardening' '2213'
+      @clearjournal
+    elseif @injournal 'fortification' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'fortification' '2213'
+      @clearjournal
+    elseif @injournal 'slaying' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'slaying' '2213'
+      @clearjournal
+    elseif @injournal 'ponderous' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'ponderous' '2213'
+      @clearjournal
+    elseif @injournal 'prodigious' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'prodigious' '2213'
+      @clearjournal
+    elseif @injournal 'troubador' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'troubador' '2213'
+      @clearjournal
+    elseif @injournal 'balladeer' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'balladeer' '2213'
+      @clearjournal
+    elseif @injournal 'enticing' 'system'
+      moveitem found 'stufftokeep'
+      headmsg 'enticing' '2213'
+      @clearjournal
+    endif
+    @clearjournal
+  endwhile
 endfor
-
 headmsg 'DONE'
 // REMOVE ONCE GM
 while skill 'Item Identification' < 100
-    useskill 'Item Identification'
-    waitfortarget 15000
-    target! 'thingtoidforever'
-    pause 2000
+  useskill 'Item Identification'
+  waitfortarget 15000
+  target! 'thingtoidforever'
+  pause 2000
 endwhile
-
