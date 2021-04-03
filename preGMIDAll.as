@@ -41,7 +41,7 @@ clearlist 'ItemTypes'
 @pushlist 'ItemTypes' 0xefa // Magic spellbook
 // Instruments
 @pushlist 'ItemTypes' 0xe9c // Drums
-@pushlist 'ItemTypes' 0xeb3 // Lute
+@pushlist 'ItemTypes' 0x2805 // Lute
 @pushlist 'ItemTypes' 0xeb2 // Harp
 @pushlist 'ItemTypes' 0xe9e // Tambourine
 // Wands
@@ -84,7 +84,7 @@ clearlist 'ItemTypes'
 //Ringmail
 @pushlist 'ItemTypes' 0x13ee //Ringmail Sleeves
 @pushlist 'ItemTypes' 0x13eb //Ringmail Gloves
-@pushlist 'ItemTypes' 0x13ec //Ringmail Tunic
+@pushlist 'ItemTypes' 0x13ed //Ringmail Tunic
 @pushlist 'ItemTypes' 0x13f1 //Ringmail Leggings
 @pushlist 'ItemTypes' 0x140b //Ringmail Helm
 //Studded
