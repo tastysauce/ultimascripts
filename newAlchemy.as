@@ -317,66 +317,66 @@ while not dead
 
     // Make
     if @inlist 'potion' 'Greater Heal'
-      replygump 0x38920abd 100
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 202
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 100
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 202
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Greater Cure'
-      replygump 0x38920abd 101
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 202
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 101
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 202
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Total Refresh'
-      replygump 0x38920abd 102
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 201
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 102
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 201
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Greater Strength'
-      replygump 0x38920abd 103
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 201
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 103
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 201
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Greater Agility'
-      replygump 0x38920abd 104
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 201
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 104
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 201
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Greater Magic Resist'
-      replygump 0x38920abd 105
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 202
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 105
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 202
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Deadly Poison'
-      replygump 0x38920abd 106
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 203
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 106
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 203
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Lethal Poison'
-      replygump 0x38920abd 106
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 204
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 106
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 204
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Greater Explosion'
-      replygump 0x38920abd 107
-      waitforgump 0x38920abd 5000
-      replygump 0x38920abd 202
-      waitforgump 0x38920abd 15000
-      waitforgump 0x38920abd 15000
+        replygump 0x38920abd 107
+        waitforgump 0x38920abd 5000
+        replygump 0x38920abd 202
+        waitforgump 0x38920abd 15000
+        waitforgump 0x38920abd 15000
     elseif @inlist 'potion' 'Stop'
-      headmsg "Currently halted" 88
-      pause 5000
+        headmsg "Currently halted" 88
+        pause 5000
     else
-      headmsg "Unable to figure out potion type you requested" 88
-      pause 5000
-      continue
+        headmsg "Unable to figure out potion type you requested" 88
+        pause 5000
+        continue
     endif
 
 
