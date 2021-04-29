@@ -111,13 +111,6 @@ while not dead
         pause 1000
     endwhile 
 
-    // Check for empty bottle
-    while not @findtype 0xf0e 0 'backpack'
-        msg "I need an empty bottle"
-        pause 5000
-        continue
-    endwhile
-
     // Verify pestle
     if not @findtype 0xe9b 'any' 'backpack'
         headmsg "Attempting to move mortar to backpack" 88
@@ -233,6 +226,12 @@ while not dead
                 pushlist! 'potion' 'change' 'front'
             endif
         endif
+    endif
+
+    // Check for empty bottle
+    if not @findtype 0xf0e 0 'backpack' and not @inlist 'potion' 'restock'
+        msg "Looking for more bottles"
+        pushlist! 'potion' 'restock' 'front'
     endif
 
     if @inlist 'potion' 'restock'
